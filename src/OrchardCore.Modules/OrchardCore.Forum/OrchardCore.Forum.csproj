@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AddRazorSupportMvc>true</AddRazorSupportMvc>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include = "Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include = "OrchardCore.Admin" Version = "1.0.0" />
+    <PackageReference Include = "OrchardCore.Module.Targets" Version = "1.0.0" /> 
+    <PackageReference Include = "OrchardCore.ContentManagement" Version = "1.0.0" />
+    <PackageReference Include = "OrchardCore.DisplayManagement" Version = "1.0.0" />
+    <PackageReference Include = "OrchardCore.ResourceManagement" Version = "1.0.0" />
+  </ItemGroup>
+
+</Project>
