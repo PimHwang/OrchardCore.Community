@@ -1,0 +1,15 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: Dotnet-Build
+  image: mcr.microsoft.com/dotnet/core/sdk:5.0
+  commands:
+  - dotnet build ./src/OrchardCore.Community/OrchardCore.Community.csproj
+
+- name: Build-Image
+  image: docker
+  commands:
+  - docker build -t registry.docker.internal/community .
+  - docker push registry.docker.internal/community
