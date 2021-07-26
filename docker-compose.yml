@@ -27,7 +27,10 @@ services:
     container_name: "registry"
     labels:
       - "traefik.enable=true"
+      - "traefik.http.services.registry.loadbalancer.server.port=5000"
       - "traefik.http.routers.registry.rule=Host(`registry.docker.internal`)"
+      - "traefik.http.routers.registry.entrypoints=web"
+      - "traefik.http.routers.registry.service=registry"
 
   drone:
     image: "drone/drone:2"

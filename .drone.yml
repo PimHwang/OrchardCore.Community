@@ -4,7 +4,7 @@ name: default
 
 steps:
 - name: Dotnet-Build
-  image: mcr.microsoft.com/dotnet/core/sdk:5.0
+  image: mcr.microsoft.com/dotnet/sdk:5.0
   commands:
   - dotnet build ./src/OrchardCore.Community/OrchardCore.Community.csproj
 
