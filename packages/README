@@ -1,0 +1,11 @@
+if you have a problem when you restore the OrchardCore1.0.0 packages using nuget, you can pack/copy your local packages here and make sure the src/OrchardCore.Community/OrchardCore.Community.csproj look like this:
+ 
+ ```
+ <Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>    
+    <RestoreSources>../../../packages</RestoreSources>
+  </PropertyGroup>
+
+</Project>
+ ```

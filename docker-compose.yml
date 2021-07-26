@@ -59,6 +59,7 @@ services:
       - DRONE_RPC_SECRET={{DRONE_RPC_SECRET}}
       - DRONE_RUNNER_CAPACITY=2
       - DRONE_RUNNER_NAME=dronerunner
+      - DRONE_RUNNER_VOLUMES=./packages:/drone/packages
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"    
     labels:
