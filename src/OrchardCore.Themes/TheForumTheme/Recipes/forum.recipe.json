@@ -9,25 +9,22 @@
   "categories": [ "default" ],
   "tags": [ "Forum" ],
 
-  // The variables are evaluated the first time they are accessed, and reused across steps
   "variables": {
-    //"landingContentItemId": "[js:uuid()]"
-    // "now": "[js: new Date().toISOString()]"
+    "adminUrlPrefix": "[js: configuration('OrchardCore_Admin:AdminUrlPrefix', 'Admin')]",
+    "now": "[js: new Date().toISOString()]"
   },
 
   "steps": [
     {
       "name": "feature",
       "disable": [
-
       ],
-      "enable": [
-        // SaaS
-        "OrchardCore.HomeRoute",
-        //"OrchardCore.Diagnostics",
-        //"OrchardCore.DynamicCache",
+      "enable": [        
         "OrchardCore.Admin",
+        "OrchardCore.Diagnostics",
+        "OrchardCore.DynamicCache",        
         "OrchardCore.Features",
+        "OrchardCore.HomeRoute",
         "OrchardCore.Navigation",
         "OrchardCore.Recipes",
         "OrchardCore.Resources",
@@ -36,42 +33,45 @@
         "OrchardCore.Themes",
         "OrchardCore.Users",
 
-        // Content Management
-        //"OrchardCore.Alias",
-        //"OrchardCore.Autoroute",
-        //"OrchardCore.Html",
-        //"OrchardCore.ContentFields",
-        //"OrchardCore.ContentPreview",
-        ////"OrchardCore.Contents",
-        //"OrchardCore.Contents.FileContentDefinition",
-        ////"OrchardCore.ContentTypes",
-        //"OrchardCore.CustomSettings",
-        //"OrchardCore.Deployment",
-        //"OrchardCore.Deployment.Remote",
-        //"OrchardCore.Feeds",
-        //"OrchardCore.Flows",
-        //"OrchardCore.Layers",
-        //"OrchardCore.Lists",
-        //"OrchardCore.Markdown",
-        ////"OrchardCore.Media",
-        //"OrchardCore.Menu",
-        //"OrchardCore.Queries",
-        //"OrchardCore.Shortcodes.Templates",
-        //"OrchardCore.Title",
-        //"OrchardCore.Templates",
-        //"OrchardCore.Widgets",
+        "OrchardCore.Alias",
+        "OrchardCore.AdminMenu",
+        "OrchardCore.Autoroute",
+        "OrchardCore.Html",
+        "OrchardCore.ContentFields",
+        "OrchardCore.ContentPreview",
+        "OrchardCore.Contents",
+        "OrchardCore.Contents.FileContentDefinition",
+        "OrchardCore.ContentTypes",
+        "OrchardCore.CustomSettings",
+        "OrchardCore.Deployment",
+        "OrchardCore.Deployment.Remote",
+        "OrchardCore.Feeds",
+        "OrchardCore.Flows",
+        "OrchardCore.Indexing",
+        "OrchardCore.Layers",
+        "OrchardCore.Lucene",
+        "OrchardCore.Lists",
+        "OrchardCore.Markdown",
+        "OrchardCore.Media",
+        "OrchardCore.Menu",
+        "OrchardCore.Placements",
+        "OrchardCore.Queries",
+        "OrchardCore.Shortcodes.Templates",
+        "OrchardCore.Rules",
+        "OrchardCore.Taxonomies",
+        "OrchardCore.Title",
+        "OrchardCore.Templates",
+        "OrchardCore.Widgets",
     
         "Forum",
-
-        // Themes
-        //"TheAgencyTheme",
+        "TheForumTheme",        
         "TheAdmin"
       ]
     },
     {
       "name": "themes",
       "admin": "TheAdmin",
-      "site": ""
+      "site": "TheForumTheme"
     },
     {
       "name": "settings",
@@ -82,7 +82,19 @@
         "Action": "Index",
         "Controller": "Admin",
         "Area": "OrchardCore.Admin"
+      },
+      "LayerSettings": {
+        "Zones": [ "Content", "Footer" ]
       }
-    }    
+    },
+    {
+      "name": "media",
+      "Files": [
+        {
+          "TargetPath": "Logo.png",
+          "SourcePath": "../wwwroot/img/Logo.png"
+        }
+      ]
+    }
   ]
 }
