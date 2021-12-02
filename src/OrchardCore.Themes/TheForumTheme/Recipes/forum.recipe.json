@@ -63,7 +63,7 @@
         "OrchardCore.Templates",
         "OrchardCore.Widgets",
     
-        "Forum",
+        "OrchardCore.Forum",
         "TheForumTheme",        
         "TheAdmin"
       ]

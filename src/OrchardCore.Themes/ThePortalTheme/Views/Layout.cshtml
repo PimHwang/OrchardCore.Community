@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@RenderTitleSegments(Site.SiteName, "before")</title>
-    <link type="image/x-icon" rel="shortcut icon" href="~/Fluent/favicon.ico" />
-    <link rel="stylesheet" href="~/Fluent/css/fabric.min.css"/>
+    <link type="image/x-icon" rel="shortcut icon" href="~/ThePortalTheme/favicon.ico" />
+    <link rel="stylesheet" href="~/ThePortalTheme/css/fabric.min.css"/>
 </head>
 <body class="ms-Fabric" dir="@Orchard.CultureDir()">
     @await RenderSectionAsync("Header", required: false)
@@ -13,6 +13,6 @@
         @await RenderSectionAsync("Messages", required: false)
         @await RenderBodyAsync()
     </main>
-    @await RenderSectionAsync("Footer", required: false)    
+    @await RenderSectionAsync("Footer", required: false)
 </body>
 </html>
