@@ -33,18 +33,16 @@ import { getTheme } from 'office-ui-fabric-react/lib/Styling';
 //   }
 // });
 
-// const theme = getTheme();
+ const theme = getTheme();
 // Styles for both command bar and overflow/menu items
 const itemStyles: Partial<IContextualMenuItemStyles> = {
-  //label: { color:theme.palette.white, fontSize: 13 },
-  //icon: { color: theme.palette.white },
-  //iconHovered: { color: theme.palette.white },
-  //rootHovered: {backgroundColor: "#742774" }
+  label: { color:theme.palette.white, fontSize: 13 },
+  icon: { color: theme.palette.white },
+  iconHovered: { color: theme.palette.white },
+  rootHovered: {backgroundColor: "#742774" }
 };
 const barStyles: Partial<ICommandBarStyles> = {
-  //root: { backgroundColor: "#8a328a" }
-  root: { backgroundColor: "#fbfbfb" }
-  
+  root: { backgroundColor: "#8a328a" }  
 };
 // For passing the styles through to the context menus
 const menuStyles: Partial<IContextualMenuStyles> = {
@@ -61,7 +59,7 @@ const CustomButton: React.FunctionComponent<IButtonProps> = props => {
       styles={{
         ...props.styles,
         ...itemStyles,
-         ...barStyles
+        ...barStyles
       }}
     />
   );
@@ -114,7 +112,7 @@ const _items: ICommandBarItemProps[] = [
       // Must specify the menu item type for submenus too!
       contextualMenuItemAs: CustomMenuItem,
       // Styles are passed through to menu items here
-      styles: menuStyles,
+      //styles: menuStyles,
       items: [
         { key: 'emailMessage', text: 'Email message', iconProps: { iconName: 'Mail' } },
         { key: 'calendarEvent', text: 'Calendar event', iconProps: { iconName: 'Calendar' } }
