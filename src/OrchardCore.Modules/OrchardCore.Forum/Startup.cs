@@ -18,6 +18,9 @@ namespace OrchardCore.Community.Forum
         {
             services.AddContentPart<Product>();
 
+            services.AddContentPart<Topic>();
+            services.AddContentPart<Message>();
+
             services.AddScoped<INavigationProvider, AdminMenu>();
             services.AddScoped<IModularTenantEvents, MyStartupTaskService>();
             services.AddScoped<IDataMigration, Migrations>();
