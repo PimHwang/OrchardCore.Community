@@ -1,4 +1,4 @@
-import MainPage from './main';
+import Home from './home';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import FormPage from './pages/FormPage';
@@ -11,11 +11,11 @@ import LaunchPage from './pages/LaunchPage';
 export default [
   {
     path: '/',
-    component: MainPage,
+    component: Home,
   },
   {
     path: '/app',
-    component: MainPage,
+    component: Home,
   },  
   {
     path: '/panel-left/',
