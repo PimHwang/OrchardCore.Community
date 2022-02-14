@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<!--<AddRazorSupportMvc>true</AddRazorSupportMvc>-->
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.ContentManagement.Abstractions" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.Data.Abstractions" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.Navigation.Core" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.Recipes.Abstractions" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.Media.Core" Version="1.0.0" />
+		<PackageReference Include="OrchardCore.ResourceManagement" Version="1.0.0" />
+	</ItemGroup>
+
+</Project>

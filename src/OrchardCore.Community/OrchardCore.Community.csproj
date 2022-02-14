@@ -50,6 +50,7 @@
     <ProjectReference Include="../OrchardCore.Modules/OrchardCore.Forum/OrchardCore.Forum.csproj" />
     <ProjectReference Include="../OrchardCore.Themes/TheForumTheme/TheForumTheme.csproj" />
     <ProjectReference Include="../OrchardCore.Themes/ThePortalTheme/ThePortalTheme.csproj" />
+    <ProjectReference Include="../OrchardCore.Modules/OrchardCore.Wechat/OrchardCore.Wechat.csproj" />
   </ItemGroup>
 
 
