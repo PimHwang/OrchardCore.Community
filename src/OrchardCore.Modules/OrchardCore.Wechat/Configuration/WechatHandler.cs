@@ -221,17 +221,25 @@ namespace OrchardCore.Wechat.Configuration
         protected override string BuildChallengeUrl(AuthenticationProperties properties, string redirectUri)
         {
             var isMicroMessenger = IsMicroMessenger(Request);
-            var authorizationEndpoint = isMicroMessenger ? WechatDefaults.AuthorizationEndpointOauth : Options.AuthorizationEndpoint;
-            var scopeParameter = properties.GetParameter<ICollection<string>>(OAuthChallengeProperties.ScopeKey);
-            var scope = scopeParameter != null ? FormatScope(scopeParameter) : FormatScope();
-            var callbackUrl = string.Empty;
+            var appid = Options.ClientId;
+            var authorizationEndpoint = Options.AuthorizationEndpoint;
+            //var scopeParameter = properties.GetParameter<ICollection<string>>(OAuthChallengeProperties.ScopeKey);
+            var scope = "snsapi_login";// scopeParameter != null ? FormatScope(scopeParameter) : FormatScope();
+            var callbackUrl = redirectUri;
+
+            if (isMicroMessenger)
+            {
+                appid = Options.AppId;
+                scope = properties.Items.ContainsKey("snsapi_base") ? "snsapi_base" : "snsapi_userinfo";
+                authorizationEndpoint = WechatDefaults.AuthorizationEndpointOauth;
+            }
 
             var parameters = new Dictionary<string, string>
             {
-                { "appid", isMicroMessenger ? Options.AppId : Options.ClientId },
-                { "scope", isMicroMessenger ? "snsapi_userinfo": scope },
+                { "appid", appid },
+                { "scope", scope },
                 { "response_type", "code" },
-                { "redirect_uri", string.IsNullOrEmpty(callbackUrl) ? redirectUri : callbackUrl + redirectUri }
+                { "redirect_uri", callbackUrl }
             };
 
             if (Options.UsePkce)
@@ -252,7 +260,7 @@ namespace OrchardCore.Wechat.Configuration
             }
 
             var state = Options.StateDataFormat.Protect(properties);
-            
+
             if (isMicroMessenger)
             {
                 state = Guid.NewGuid().ToString();
