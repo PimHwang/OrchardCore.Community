@@ -282,12 +282,19 @@ namespace OrchardCore.Wechat.Configuration
         /// </summary>
         protected override async Task<AuthenticationTicket> CreateTicketAsync(ClaimsIdentity identity, AuthenticationProperties properties, OAuthTokenResponse tokens)
         {
+            var openid = tokens.Response.RootElement.GetString("openid");
+
+            if (!properties.Items.ContainsKey("snsapi_base"))
+            {
+                openid = tokens.Response.RootElement.GetString("unionid") ?? openid;
+            }
+
             var parameters = new Dictionary<string, string>
             {
                 { "access_token", tokens.AccessToken },
-                { "openid", tokens.Response.RootElement.GetString("unionid") ?? tokens.Response.RootElement.GetString("openid") },
+                { "openid", openid },
             };
-            
+
             var request = new HttpRequestMessage(HttpMethod.Get, QueryHelpers.AddQueryString(Options.UserInformationEndpoint, parameters));
 
             var response = await Backchannel.SendAsync(request, Context.RequestAborted);
