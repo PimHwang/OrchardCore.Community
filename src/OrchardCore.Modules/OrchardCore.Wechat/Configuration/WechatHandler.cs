@@ -98,10 +98,10 @@ namespace OrchardCore.Wechat.Configuration
             }
 
             // OAuth2 10.12 CSRF
-            if (!ValidateCorrelationId(properties))
-            {
-                return HandleRequestResult.Fail("Correlation failed.", properties);
-            }
+            //if (!ValidateCorrelationId(properties))
+            //{
+            //    return HandleRequestResult.Fail("Correlation failed.", properties);
+            //}
 
             var error = query["error"];
             if (!StringValues.IsNullOrEmpty(error))
